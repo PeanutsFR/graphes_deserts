@@ -24,7 +24,7 @@ void parser(FILE *fp, graphe_l *gl, graphe_m *gm)
 
 
     initialiser_matrice(gm);
-    
+
     while( fscanf(fp,"%d %d",&s1,&s2)==2 ) //lit tout le fichier, fscanf retourne le nombre de variables saisies si on en a plus ou moins que deux on sort
     {
         printf("sommet %d<->%d \n",s1,s2);
@@ -44,9 +44,7 @@ void parser(FILE *fp, graphe_l *gl, graphe_m *gm)
 
 }
 
-void saisie_ensemble_sommet(liste *l)
-{
+// void saisie_ensemble_sommet(liste *l)
+// {
 
-
-
-}
+// }

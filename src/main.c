@@ -29,7 +29,7 @@ int main(int argc , char*argv[])
 
     if(argc<2)
     {
-        couleur("31");printf("pas d'option spe \n");couleur("0");
+        couleur("31");printf("usage : ./projet_complexite <chemin/fichier> \n");couleur("0");
     }
     else
     {
