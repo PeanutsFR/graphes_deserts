@@ -61,7 +61,7 @@ int verification_m(graphe_m *g,liste *l)
 {
 
     liste curseur1,curseur2,memoire_curseur1;
-    curseur1=*l;             //on pointe sur la tete de liste 
+    curseur1=*l;             //on pointe sur la tete de liste
     if(curseur1->suivant)    // si elle contient plus d'un élément
     {
         while(curseur1 && curseur1->suivant)      //on doit verifier que chaque sommet n'a pas d'arc entre eux
