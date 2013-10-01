@@ -1,34 +1,36 @@
 #Répertoires et fichiers
-OBJ_DIR = .
-SRC_DIR = src
-INC_DIR = src
-BIN_DIR = bin
+OBJ_DIR = ./
+SRC_DIR = src/
+BIN_DIR = bin/
 
-OBJS = $(OBJ_DIR)/ast.o $(OBJ_DIR)/patchwork.o
+#liste des sources a compiler
+SRC=$(wildcard $(SRC_DIR)*.c) #recherche tout les fichier sources finissant par .c dans le dossier SRC_DIR
+OBJ=$(SRC:.c=.o)              #nomme les fichier .o auront le meme nom que .c
 
-PROGS = test_affiches_specifiques test_evaluer testparse
+PROGS=$(BIN_DIR)projet_complexite
 
-#Flags
+#compilateur
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 $(OPTFLAGS)
+
+#options compilateur
+CFLAGS = -Wall -Wextra -Werror -std=c99 $(OPTFLAGS)
 OPTFLAGS = -g
 
-#Première règle
-.PHONY: all
+
+#Compilation
+
 all: $(PROGS)
-	
 
-#Génération des programmes
-%: $(SRC_DIR)/%.c $(OBJS)
-	$(CC) $(CFLAGS) $< $(OBJS) libparser.a -o $(BIN_DIR)/$@ -lm
-testparse: $(SRC_DIR)/testparse.c $(OBJS)
-	$(CC) $(CFLAGS) $< $(OBJS) libparser.a -o $(BIN_DIR)/$@ -lm
+$(PROGS): $(OBJ)
+	$(CC) -o $@ $^
 
-#Génération des modules
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/%.h
-	$(CC) $(CFLAGS) -c $< -o $@
 
-#Règles PHONY diverses
-.PHONY: clean
+%.o: %.c
+	$(CC) -o $@ -c $^ $(CFLAGS)
+
+
 clean:
-	rm -rf $(OBJS) *~ $(OBJ_DIR)/*~ $(SRC_DIR)/*~ $(INC_DIR)/*~
+	rm $(SRC_DIR)*.o
+
+mrproper: clean
+	rm $(BIN_DIR)$(EXEC)
