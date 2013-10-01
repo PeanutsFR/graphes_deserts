@@ -49,6 +49,26 @@ int main(int argc , char*argv[])
             parser(fp,&gl,&gm);                        //parser le fichier
             fclose(fp);
 
+
+
+
+
+
+
+
+            // -------------------- /!\ ICI ON FAIT TOURNER LES ALGOS -------------------- //
+
+            // Il suffit d'utiliser : gm ou gl qui sont écrits par le parser
+
+
+
+
+
+
+
+
+
+
         }
         else
         {
