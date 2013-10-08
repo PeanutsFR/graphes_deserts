@@ -3,6 +3,9 @@
 #include "couleur.h"
 #include "parser.h"
 #include "structure.h"
+#include "model_liste.h"
+#include "model_matrice.h"
+#include "gestion_listes.h"
 
 
 int main(int argc , char*argv[])
@@ -51,23 +54,28 @@ int main(int argc , char*argv[])
 
 
 
-
-
-
-
-
             // -------------------- /!\ ICI ON FAIT TOURNER LES ALGOS -------------------- //
 
-            // Il suffit d'utiliser : gm ou gl qui sont écrits par le parser
 
 
+            liste l = NULL;
+            //ajouter_arete_l(&l,3);
+            ajouter_arete_l(&l,5);
+            ajouter_arete_l(&l,7);
+            ajouter_arete_l(&l,9);
+            printf("Ensemble de sommets à vérifier :\n");
+            afficher_liste(&l);
+            printf("\n");
 
+            // VERIF LISTE
+            int verif_l = 69;
+            verif_l = verification_l(&gl,&l);
+            printf("Verif_l : %d\n", verif_l);
 
-
-
-
-
-
+            // VERIF MATRICE
+            int verif_m = 69;
+            verif_m = verification_m(&gm,&l);
+            printf("Verif_m : %d\n", verif_m);
 
         }
         else

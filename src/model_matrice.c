@@ -17,10 +17,10 @@ void initialiser_matrice(graphe_m *g)
 }
 
 
-void ajouter_arete_m(graphe_m *g, int somet1, int somet2)
+void ajouter_arete_m(graphe_m *g, sommet x, sommet y)
 {
-    g->a[somet1][somet2]=1;
-    g->a[somet2][somet1]=1;
+    g->a[x][y]=1;
+    g->a[y][x]=1;
 }
 
 void afficher_matrice(graphe_m *g)
@@ -51,9 +51,9 @@ void afficher_matrice(graphe_m *g)
 /*                                                                                */
 /**********************************************************************************/
 
-int presence_arrete_m(graphe_m *g,int somet1,int somet2)
+int presence_arrete_m(graphe_m *g,sommet x,sommet y)
 {
-    return g->a[somet1][somet2];
+    return g->a[x][y];
 }
 
 
@@ -77,5 +77,5 @@ int verification_m(graphe_m *g,liste *l)
 
         return presence_arrete_m(g,memoire_curseur1->st,memoire_curseur1->suivant->st);
     }
-    else return 1;
+    else return 0;
 }

@@ -27,7 +27,7 @@ void parser(FILE *fp, graphe_l *gl, graphe_m *gm)
 
     while( fscanf(fp,"%d %d",&s1,&s2)==2 ) //lit tout le fichier, fscanf retourne le nombre de variables saisies si on en a plus ou moins que deux on sort
     {
-        printf("sommet %d<->%d \n",s1,s2);
+       // printf("sommet %d<->%d \n",s1,s2);
         ajouter_arete_l(&gl->a[s1],s2);   //graphe non oriente donc si 1->2 on a 2->1
         ajouter_arete_l(&gl->a[s2],s1);
         ajouter_arete_m(gm,s1,s2);
@@ -40,7 +40,7 @@ void parser(FILE *fp, graphe_l *gl, graphe_m *gm)
 
     }
     printf("\n");
-    afficher_matrice(gm);
+   // afficher_matrice(gm);
 
 }
 
