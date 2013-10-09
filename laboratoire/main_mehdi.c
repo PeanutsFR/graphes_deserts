@@ -3,8 +3,9 @@
 #include "couleur.h"
 #include "parser.h"
 #include "structure.h"
-#include "gestion_listes.h"
 #include "model_liste.h"
+#include "model_matrice.h"
+#include "gestion_listes.h"
 
 
 int main(int argc , char*argv[])
@@ -31,12 +32,12 @@ int main(int argc , char*argv[])
 
     if(argc<2)
     {
-        couleur("31");printf("pas d'option spe \n");couleur("0");
+        couleur("31");printf("usage : ./projet_complexite <chemin/fichier> \n");couleur("0");
     }
     else
     {
-        couleur("32");printf("Ouverture fichier :''");couleur("0");
-        couleur("31");printf("%s",argv[1]);couleur("0");
+        couleur("32");printf("Ouverture fichier :''"),couleur("0");
+        couleur("31");printf("%s",argv[1]),couleur("0");
         couleur("32");printf("''");couleur("0");
         couleur("32;5");printf("Appuyez sur entrée\n");couleur("0");
         getchar();
@@ -51,52 +52,30 @@ int main(int argc , char*argv[])
             parser(fp,&gl,&gm);                        //parser le fichier
             fclose(fp);
 
-            liste tmp=NULL;
-            saisie_ensemble_sommet(&tmp);
-            printf("la chaine saisie est :\n");
-            afficher_liste(&tmp);
+
+
+            // -------------------- /!\ ICI ON FAIT TOURNER LES ALGOS -------------------- //
+
+
+
+            liste l = NULL;
+            //ajouter_arete_l(&l,3);
+            ajouter_arete_l(&l,5);
+            ajouter_arete_l(&l,7);
+            ajouter_arete_l(&l,9);
+            printf("Ensemble de sommets à vérifier :\n");
+            afficher_liste(&l);
             printf("\n");
 
+            // VERIF LISTE
+            int verif_l = 69;
+            verif_l = verification_l(&gl,&l);
+            printf("Verif_l : %d\n", verif_l);
 
-            printf(" TEST VERIF SOUS GRAPHE DESERT \n");
-            int test;
-            test=verification_l(&gl,&tmp);
-            if (test==1)
-                printf("c'est un sous graphe desert\n");
-            else 
-                printf(" ce n'est pas un sous graphe dersert\n");
-            test++;
-
-            printf("TEST MAXIMALITE\n");
-            test=maximalite(&gl,&tmp);
-            if(!test)
-            {
-                afficher_liste(&tmp);
-                printf("ensemble max\n");
-            }
-            else
-            {
-                printf("on a trouve un ensemble plus grand \n");
-                afficher_liste(&tmp);
-            }
-
-
-            printf("\n");
-            printf("calcul maximal \n");
-            liste maximal;
-
-            int i;
-            for(i=0;i<gl.n;i++)
-            {
-            maximal=calcul_maximal(&gl,i);
-            afficher_liste(&maximal);
-            maximal=NULL;
-            }            
-            printf("\n");
-            printf("CALCUL MAXIMUM \n");
-            i=maximum(&gl);
-            printf("sortie MAX\n");
-
+            // VERIF MATRICE
+            int verif_m = 69;
+            verif_m = verification_m(&gm,&l);
+            printf("Verif_m : %d\n", verif_m);
 
         }
         else

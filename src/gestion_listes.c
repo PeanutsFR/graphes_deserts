@@ -13,8 +13,9 @@
 
 void ajouter_arete_l(liste *l,int somet)
 {
-    liste tmp;
+    liste tmp,memoire;
     liste element=(struct chainon *) malloc(sizeof(Couple) );
+    memoire=NULL;
 
     if(!element) //on test si le malloc a reussi
     {
@@ -34,11 +35,29 @@ void ajouter_arete_l(liste *l,int somet)
     else
     {
         tmp=*l;
-        while(tmp->suivant) // on parcourt la liste jusqu'au dernier element
+        while(tmp->suivant && somet>=tmp->st) // on parcourt la liste jusqu'a l'avant dernier element
         {
+            memoire=tmp;
             tmp=tmp->suivant;
         }
-        tmp->suivant=element; // on fait pointer le dernier element sur l'élement créé
+        if(somet<tmp->st)
+        {
+            if(tmp==*l)
+            {
+                element->suivant=tmp;
+                *l=element;
+            }
+            else
+            {
+                element->suivant=tmp;
+                memoire->suivant=element;
+            }
+        }
+        else
+        {
+            if(!tmp->suivant)
+                tmp->suivant=element; // on fait pointer le dernier element sur l'élement créé
+        }
     }
 }
 

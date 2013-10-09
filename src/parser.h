@@ -4,4 +4,6 @@
 
 void parser(FILE *,graphe_l *,graphe_m *);
 
+void saisie_ensemble_sommet(liste *);
+
 #endif

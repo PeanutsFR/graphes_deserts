@@ -17,10 +17,10 @@ void initialiser_matrice(graphe_m *g)
 }
 
 
-void ajouter_arete_m(graphe_m *g, sommet x, sommet y)
+void ajouter_arete_m(graphe_m *g, int somet1, int somet2)
 {
-    g->a[x][y]=1;
-    g->a[y][x]=1;
+    g->a[somet1][somet2]=1;
+    g->a[somet2][somet1]=1;
 }
 
 void afficher_matrice(graphe_m *g)
@@ -51,17 +51,17 @@ void afficher_matrice(graphe_m *g)
 /*                                                                                */
 /**********************************************************************************/
 
-int presence_arrete_m(graphe_m *g,sommet x,sommet y)
+int presence_arrete_m(graphe_m *g,int somet1,int somet2)
 {
-    return g->a[x][y];
+    return g->a[somet1][somet2];
 }
 
 
-int verification_m(graphe_m *g,liste *l)
+/*int verification_m(graphe_m *g,liste *l)
 {
 
     liste curseur1,curseur2,memoire_curseur1;
-    curseur1=*l;             //on pointe sur la tete de liste
+    curseur1=*l;             //on pointe sur la tete de liste 
     if(curseur1->suivant)    // si elle contient plus d'un élément
     {
         while(curseur1 && curseur1->suivant)      //on doit verifier que chaque sommet n'a pas d'arc entre eux
@@ -77,5 +77,5 @@ int verification_m(graphe_m *g,liste *l)
 
         return presence_arrete_m(g,memoire_curseur1->st,memoire_curseur1->suivant->st);
     }
-    else return 0;
-}
+    else return 1;
+}*/
