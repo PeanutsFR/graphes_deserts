@@ -1,4 +1,0 @@
-
-BLINDER:
-	fonction presence_arrete_m: on part du principe que la matrice est bien initialisé et bien remplit
-				    on ne teste "qu'une seule" arete étant donné que le graphe est non orienté

@@ -1,0 +1,30 @@
+#ifndef MODEL_LIST_H
+#define MODEL_LIST_H
+
+int presence_arrete_m(graphe_m *, sommet , sommet);
+int verification_m(graphe_m *, Ensemble *);
+
+int presence_arrete_l(graphe_l *, sommet , sommet );
+
+int verification_l(graphe_l *,Ensemble *);
+int maximalite(graphe_l *, Ensemble *);
+
+Ensemble calcul_maximal(graphe_l *, int);
+
+void afficher_tab(int *, int);
+
+int verif(liste *,int *);
+
+int maximum_rec(graphe_l *,int ,int *,sommet,Ensemble *,int *,int *,int );
+
+int maximum_rec_sans_coupure(graphe_l *);
+
+int maximum(graphe_l *);
+
+
+void maximum_incomplete(graphe_d *);
+
+void copie_graphe_l(graphe_l *, graphe_d *);
+
+
+#endif
