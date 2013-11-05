@@ -1,3 +1,8 @@
+
+======> ATTENTION : maximum_complet est buggé -> lancer le test avec le graphe tr1 pour s'en apercevoir.
+
+
+
 graphes_deserts
 ===============
 
